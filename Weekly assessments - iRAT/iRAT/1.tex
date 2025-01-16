@@ -1,0 +1,90 @@
+\subsection*{Question 1}
+\textbf{State all the languages you speak.}
+
+English, Chinese (Mandarin).
+
+\subsection*{Question 2}
+\textbf{Write the solution of $\min_{x} ||Ax - b||^2_2$. }
+
+To minimise $ (Ax - b)^T (Ax - b) = x^TA^TAx - 2x^TA^Tb + b^Tb $, 
+
+we take the derivative with respect to $x$ and set it to zero: $ 2A^TAx - 2A^Tb = 0 $.
+
+Thus $x^* = (A^T A)^{-1} A^T b$.
+
+\subsection*{Question 3}
+\textbf{Explain why in the norm approximation problem, the $\ell_1$-norm generates a large number of zero residuals.}
+
+Because the \(\ell_1\)-norm adds the absolute values together, when minimising the residues using \(\ell_1\)-norm, we get a very sparse solution. 
+
+\subsection*{Question 4}
+\textbf{Which penalty function would you pick to reduce sensitivity to outliers?}
+
+\(\ell_1\)-norm or the Huber penalty function. 
+
+\subsection*{Question 5}
+\textbf{Give the solution to the $\ell_2$ least-norm problem $\min_{x} || x ||_2^2 \; \; s.t. \; Ax = b$.}
+
+$ x^* = A^{\top}(AA^{\top})^{-1}b $.
+
+\subsection*{Question 6}
+\textbf{Give the solution of the Tikhonov regularisation problem.}
+
+
+We have the general equation of Tikhonov regularisation problem: $$ \min_{x} \, ||Ax - b||_2^2 + \gamma ||x||_2^2 $$
+
+Objective function: 
+
+$$ J(x) = ||Ax - b||_2^2 + \gamma ||x||_2^2 $$
+
+We take the derivative with respect to $x$ and set it to zero: 
+
+$$ \nabla_x J(x) = 2 A^T A x - 2 A^T b + 2 \gamma x = 0 $$
+
+$$ A^T A x + \gamma x = A^T b $$
+
+Thus: 
+
+$$ x = (A^T A + \gamma I)^{-1} A^T b $$
+
+
+\subsection*{Question 7}
+\textbf{Make a comparison between the solution of the nominal least-square, stochastic least-square and worst-case least-square.}
+
+The nominal least-square solution achieves best result when $u=0$, ie. when there are no significant outliers.
+
+The stochastic least-square solution performs better than nominal least-square solution with large $u$, ie. when the data is noisy.
+
+The worst-Case least-square is least sensitive to large number of outliers, it has a similar performance across all $u$.
+
+\subsection*{Question 8}
+\textbf{Declare a variable $x$ of dimension $n$ in CVXPY.}
+
+According to \href{https://www.cvxpy.org/tutorial/intro/index.html}{https://www.cvxpy.org/tutorial/intro/index.html}, we can declare: 
+
+\begin{lstlisting}
+    import cvxpy as cp
+    x = cp.Variable(n)
+\end{lstlisting}
+
+
+\subsection*{Question 9}
+\textbf{Declare the constraints \( x + y = 1 \) and \( x - y \geq 1 \) in CVXPY.}
+
+
+
+\begin{lstlisting}
+    y = cp.Variable()
+    constraints = [
+        x + y == 1,
+        x - y >= 1
+    ]
+\end{lstlisting}
+
+
+\subsection*{Question 10}
+\textbf{Which atomic function would you use in CVXPY to compute the $\ell_\infty$-norm of a variable $x$?}
+
+\begin{lstlisting}
+    norm_inf_x = cp.norm(x, "inf")
+\end{lstlisting}

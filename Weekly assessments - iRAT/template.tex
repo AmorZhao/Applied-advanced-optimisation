@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in, top=1in]{geometry} 
+
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{setspace}
+\setlength{\parskip}{1.25ex}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{ipython_frame}{RGB}{207, 207, 207}
+\definecolor{ipython_bg}{RGB}{247, 247, 247}
+\definecolor{ipython_red}{RGB}{186, 33, 33}
+\definecolor{ipython_green}{RGB}{0, 128, 0}
+\definecolor{ipython_cyan}{RGB}{64, 128, 128}
+\definecolor{ipython_purple}{RGB}{170, 34, 255}
+\usepackage{titlesec}
+
+\lstset {
+    language=Python,                           % Language to be used
+    backgroundcolor=\color{ipython_bg},         % Background color of the code block
+    basicstyle=\ttfamily\footnotesize,         % Basic font style (typewriter, footnotesize)
+    keywordstyle=\color{ipython_green}\bfseries,        % Keyword color and style
+    commentstyle=\color{green}\itshape,        % Comment style
+    stringstyle=\color{red},                   % String style (e.g., '...' in red)
+    identifierstyle=\color{black},             % Identifier style (variable names etc.)
+    morekeywords={self,def,class},
+    numbers=left,                             % Line numbers on the left
+    numberstyle=\tiny\color{gray},             % Line number style
+    stepnumber=1,                             % Number every line
+    numbersep=5pt,                            % Distance between code and line numbers
+    lineskip=1pt,                             % Line skip space
+    showstringspaces=false,                   % Don't show spaces in strings
+    breaklines=true,                          % Automatically break long lines
+    breakatwhitespace=true,                   % Break lines at whitespace
+    captionpos=b,                             % Position of the caption (bottom)
+    escapeinside={\%*}{*)},                   % Escape to LaTeX if necessary
+    morekeywords={self},                      % Additional keywords to highlight (e.g. 'self' in Python)
+    frame=single,                             % Frame the code block
+    rulecolor=\color{black},                  % Color of the frame
+    tabsize=4,                                % Number of spaces per tab
+    extendedchars=true,                       % Allow extended characters
+    showtabs=false,                           % Don't show tabs
+    showspaces=false,                         % Don't show spaces
+    %
+    literate=
+    {^}{{{\color{ipython_purple}\^{}}}}1
+    {=}{{{\color{ipython_purple}=}}}1
+    %
+    {+}{{{\color{ipython_purple}+}}}1
+    {*}{{{\color{ipython_purple}$^\ast$}}}1
+    {/}{{{\color{ipython_purple}/}}}1
+    %
+    {+=}{{{+=}}}1
+    {-=}{{{-=}}}1
+    {*=}{{{$^\ast$=}}}1
+    {/=}{{{/=}}}1,
+    literate=
+    *{-}{{{\color{ipython_purple}-}}}1
+     {?}{{{\color{ipython_purple}?}}}1,
+    %
+    identifierstyle=\color{black}\ttfamily,
+    commentstyle=\color{ipython_cyan}\ttfamily,
+    stringstyle=\color{ipython_red}\ttfamily,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    %
+    rulecolor=\color{ipython_frame},
+    frame=single,
+    framexleftmargin=6mm,
+    xleftmargin=14mm, 
+    xrightmargin=4mm, 
+    numbers=left,
+    numberstyle=\tiny\color{halfgray}
+}
+
+\title{Applied Advanced Optimisation iRAT 1}
+\author{Zhao, Amor (CID: 02019680)}
+
+\begin{document}
+
+\vspace{-2cm}
+\maketitle
+\makeatletter
+\@date 
+\makeatother
+
+\input{iRAT/1}
+
+\end{document}
