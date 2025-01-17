@@ -88,3 +88,35 @@ According to \href{https://www.cvxpy.org/tutorial/intro/index.html}{https://www.
 \begin{lstlisting}
     norm_inf_x = cp.norm(x, "inf")
 \end{lstlisting}
+
+\section*{Feedback}
+
+Your grade for the first iRAT should be visible on blackboard. I received 38 submissions. The most common mistake was on question 3. The majority of submissions has either no or one error. One submission was late, thus the standard policy was applied and the mark was capped to pass (50). Please, do not submit late. Model answers below. If an answer is missing below, it means that no one got it wrong.
+
+2. Some submissions did not contain the answer, namely x=inverse(A'A)A'b
+
+3. The l1-norm generates a large number of zero residuals because it has a constant slope. So no matter how small the residual is, there is a costant push to make it smaller. This is not the case for instance with the l2-norm. The l2-norm has a slope which is linear in the redidual. As the residual approaches zero, the slopes becomes zero and stops pushing. (Some replied that the l1 penalises more small residuals than big. This is wrong. The penalty is constant, so independent of how big or small the residual is. This is why the residuals are carried all the way to zero).
+
+4. For instance Huber, or l1.
+
+5. Some submissions did not contain the answer, namely x = A'inverse(AA')b
+
+8. 
+
+\begin{lstlisting}
+    import cvxpy as cp (I considered your answer correct also without this line)
+    x = cp.Variable(n)
+\end{lstlisting}
+
+9. 
+
+\begin{lstlisting}
+    constraints = [x+y==1, x-y>=1]
+\end{lstlisting}
+
+10. 
+
+\begin{lstlisting}
+    import cvxpy as cp (considered correct also without this line and the cp. below)
+    cp.norm(x,"inf") (considered correct also norm_inf)
+\end{lstlisting}
