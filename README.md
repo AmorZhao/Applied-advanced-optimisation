@@ -1,7 +1,7 @@
 # Applied advaned optimisation
 
 - [x] **Chapter 1:** Approximation and Fitting Problems (*Applications*)
-- [ ] **Chapter 2:** Statistical Problems (*Applications*)
+- [x] **Chapter 2:** Statistical Problems (*Applications*)
 - [ ] **Chapter 3:** Convex Sets (*Theory - Mathematics*)
 - [ ] **Chapter 4:** Convex Functions (*Theory - Mathematics*)
 - [ ] **Chapter 5:** Convex Optimisation Problems (*Theory - Mathematics*)
