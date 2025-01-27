@@ -2,7 +2,7 @@
 
 - [x] **Chapter 1:** Approximation and Fitting Problems (*Applications*)
 - [x] **Chapter 2:** Statistical Problems (*Applications*)
-- [ ] **Chapter 3:** Convex Sets (*Theory - Mathematics*)
+- [x] **Chapter 3:** Convex Sets (*Theory - Mathematics*)
 - [ ] **Chapter 4:** Convex Functions (*Theory - Mathematics*)
 - [ ] **Chapter 5:** Convex Optimisation Problems (*Theory - Mathematics*)
 - [ ] **Chapter 6:** Duality (*Theory - Mathematics*)
