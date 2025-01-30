@@ -1,3 +1,8 @@
+% Reminder:
+% - Watch the recordings in Chapter 2 and Chapter 3 up to Section 3.4 (included)
+% - Complete the second iRAT by Thursday 23rd at 13:00
+% - Next class on Friday 24th at 11:00.
+
 \subsection*{Question 1}
 \textbf{Deﬁne a randomized detector and a deterministic detector.}
 
@@ -66,4 +71,25 @@ This condition can be expressed as an intersection of convex sets. For each \( x
 \[
 C_x = \{ A \in \mathbb{R}^{n \times n} \mid x^T A x \geq 0 \}
 \]
-Each \( C_x \) is a convex set because it is defined by a linear inequality in terms of \( A \). The positive semidefinite cone \( S_+^n \) is the intersection of all such sets \( C_x \). Since convexity is preserved under intersection, \( S_+^n \) is convex. Hence the positive semidefinite cone is convex.
+Each \( C_x \) is a convex set because it is defined by a linear inequality in terms of \( A \). The positive semidefinite cone \( S_+^n \) is the intersection of all such sets \( C_x \). Since convexity is preserved under intersection, \( S_+^n \) is convex. Hence the positive semidefinite cone is convex. 
+
+\newpage
+
+\section*{Feeback}
+
+\subsection*{Q4}
+
+One student generated a figure using AI that looks like a triangle with the left side curved in. This is obviously incorrect because the side curves in and if you track a line between any two points on this curve, that line would lies outside the set. Guys, AI is rubbish at these things, I try it often and I am always disappointed. 
+
+One student misunderstood the meaning of corner, thinking that a corner is any point on the border of the set (so a circle would be full of corners). This is not the case. A corner is a sharp intersection of two edges. Call it a vertex, or a point where the edge is not differentiable, or a point which cannot be obtained as a convex combination of any other point but itself.
+
+It was nice to see a lot of different sets here. Many proposed "-", "D" "()" or infinitely long half rectanles.
+
+\subsection*{Q5}
+
+Here you gave a lot of different interpretations and observations. I generally considered correct almost all of them, but I want to make two remarks: 
+
+\begin{itemize}
+    \item The standard answer should include the differences on the assumptions on the weights (sum to 1 and/or non-negativity). 
+    \item There was one answer which I considered wrong: a student wrote that affine sets are one-dimensional because they are lines. This is incorrect because affine sets are not lines, but sets that contain any line passing through any two points belonging to the set. Affine sets can be of any dimension. $R^2$ (the entire plane) is an affine set and it is an example of two-dimensional affine set.
+\end{itemize}
