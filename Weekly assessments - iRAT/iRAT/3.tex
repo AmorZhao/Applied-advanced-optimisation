@@ -81,3 +81,34 @@ This provides a linear function that lies below the graph of \( f \) for all \( 
 \textbf{Importance:} 
 
 This inequality shows that from the local information about a convex function (i.e. its value and derivative at a point) we can derive global information (i.e., a global underestimator of it). In this way, we can eventually find the minimum of convex functions by iteratively moving in the direction of the negative gradient. 
+
+
+\newpage
+
+\section*{Feedback}
+
+About half of the submissions contained no error. Some had 1 or 2 errors, usually on Q3. One submission had 4 errors, and two submissions were mostly incorrect.
+
+\subsection*{Q1/Q2} 
+
+Either of the definitions towards the end of Section 3.5 were correct. Some student did not write these or wrote them so imprecisely that they were incorrect or incomprehensible.
+
+\subsection*{Q3}
+
+Several students did not identify all or the correct minimal points. All the points (infinite number) on the circle from 6pm to 9pm are minimal with respect to the standard cone. Some students did not correctly say that there is no minimum.
+
+The circle C has no minimum elements as there are no points $x \in C$ where $S \subseteq x + K$.
+All the points indicated on the surface (third quadrant) highlighted in red are minimal points of C
+as $ (x - K) \cap S = \{x\}$.
+
+\begin{center}
+\begin{tikzpicture}  
+\fill[gray!40] (2,2) circle (1.2);
+\draw[thick] (2,2) circle (1.2);
+\fill[gray!20] (0,{2 - 1.2/sqrt(2)}) -- ({2 - 1.2/sqrt(2)}, {2 - 1.2/sqrt(2)}) -- ({2 - 1.2/sqrt(2)}, 0) -- (0, 0) -- cycle;
+\draw[thick] (0,{2 - 1.2/sqrt(2)}) -- ({2 - 1.2/sqrt(2)}, {2 - 1.2/sqrt(2)}) -- ({2 - 1.2/sqrt(2)}, 0);
+\node at (0.6,0.8) [anchor=north, black] {x - K}; 
+\draw[blue, ultra thick] (2,0.8) arc[start angle=-90, end angle=-180, radius=1.2];
+\node at (2.4, 0.8) [anchor=north, blue] {Minimal}; 
+\end{tikzpicture}
+\end{center}
