@@ -1,0 +1,115 @@
+% For next week:
+% - Cover from section 4.2.1 to section 5.1.2 (included).
+% - Complete the fourth iRAT by Thursday 6th at 13:00
+% - Next class on Friday 7th at 11:00.
+
+\subsection*{Question 1}
+\textbf{Deﬁne quasiconvexity and give the modiﬁed Jensen's inequality for quasiconvex functions.}
+
+A function $f: \mathbb{R}^n \to \mathbb{R}$ is called quasiconvex if its domain and all its sublevel sets $S_{\alpha} = \{x\in\textbf{dom }f : f(x) \le \alpha \}$ for $\alpha \in \mathbb{R}$ are convex.
+
+\subsection*{Question 2}
+\textbf{Deﬁne a convex optimisation problem.}
+
+The general form of a convex optimisation problem can be defined as:
+
+$$
+\begin{array}{lll}
+    \text{min} & f_0(x) & \\
+    \text{s.t.} & f_i(x) \leq 0, & i = 1, \ldots, m \\
+    & a_i(x) = b_i, & i = 1, \ldots, p
+\end{array}
+$$
+
+where $f_0,\dots,f_m$ are convex functions. 
+
+\subsection*{Question 3}
+\textbf{Write the bisection algorithm to solve a quasiconvex optimisation problem.}
+
+First we define the convex feasibility problem as follows: 
+
+$$
+\begin{array}{lll}
+\text{find} & x &\\
+\text{s.t.} & \phi_t(x) \le 0 & \\
+& f_i(x) \le 0, & i = 1,\dots,m\\
+& a_i^\top x = b_i,  & i = 1,\dots,p
+\end{array}
+$$
+
+We can solve the quasiconvex optimisation problem by solving a sequence of convex feasibility problems:
+
+$$
+\begin{array}{ll}
+\textbf{given} & l\le p^*,\, u\ge p^*, \text{ tolerance } \varepsilon>0 \\
+\textbf{repeat} & \\
+\quad \quad 1. & t:=(l+u)/2 \\
+\quad \quad 2. & \text{Solve the convex feasibility problem} \\
+\quad \quad 3. & \textbf{if} \text{ the problem is feasible} \\ 
+& \quad u:=t \\
+& \textbf{else} \\ 
+& \quad l:=t \\
+\textbf{until} & u-l \le \varepsilon
+\end{array}
+$$
+
+
+\subsection*{Question 4}
+\textbf{Consider a general convex optimisation problem and suppose that $f_0$ is diﬀerentiable. State a necessary and suﬃcient condition for $x$ to be optimal.}
+
+With feasible set $X$, $x$ is optimal if and only if $x\in X$ and $\nabla f_0(x)^\top (y-x) \ge 0$ for all $y\in X$. 
+
+\subsection*{Question 5}
+\textbf{Consider the convex optimisation problem
+$$
+\begin{array}{lll}
+\text{min} & f_0(x) \\
+\text{s.t.} & Ax = b.
+\end{array}
+$$
+State necessary and suﬃcient conditions for x to be optimal.}
+
+$x\in\textbf{dom }f_0$ is optimal if and only if there exists a $v$ such that $Ax = b$ and $\nabla f_0(x) + A^\top v =0$. 
+
+
+\subsection*{Question 6}
+\textbf{Consider the convex optimisation problem
+$$ 
+\begin{array}{lll}
+\text{min} & f_0(x) \\
+\text{s.t.} & x < 0. 
+\end{array}
+$$
+State necessary and suﬃcient conditions for x to be optimal.}
+
+$x\in\textbf{dom }f_0$ is optimal if and only if there exists a $ x < 0$ such that $\nabla f_0 (x)=0$. 
+
+\newpage
+
+\subsection*{Appendix}
+\textbf{The following questions were part of the test in previous years. I removed them to make the test faster to complete. These questions are not marked, but you can use them as extra exercise material.}
+
+\noindent\textbf{1. \; Consider the function $ f(x) = \frac{1} {g(x)}$ , where $g(x)$ is positive for all $x \in \mathbb{R}$. You want to use the composition rule to establish whether f (x) is convex, concave or neither. To this end:}
+\begin{enumerate}
+    \item[(a)] \textbf{Identify the function $h(x)$ (you should consider the function only for $x > 0$).}
+    
+    The function $h(x)$ is defined as $h(x) = \frac{1}{x}$, where $x > 0$.
+
+    \item[(b)] \textbf{Find $\tilde{h}$ and show whether this is non-decreasing or non-increasing.}
+    
+    The function $\tilde{h}$ is defined as $\tilde{h}(x) = \frac{1}{x^2}$, which is non-decreasing.
+
+    \item[(c)] \textbf{Add a missing assumption on $g(x)$ to apply the composition rule.}
+    
+    The missing assumption: $g(x)$ is convex.
+
+\end{enumerate}
+
+\noindent\textbf{2. \; Deﬁne log-concavity and give the modiﬁed Jensen's inequality for log-concave functions.}
+
+Log-concavity is a property of functions that satisfy the inequality $f(\lambda x + (1-\lambda)y) \geq f(x)^\lambda f(y)^{1-\lambda}$ for all $x,y$ in the domain of $f$ and $\lambda \in [0,1]$.
+
+The modified Jensen's inequality for log-concave functions is given by $f(\lambda x + (1-\lambda)y) \geq f(x)^\lambda f(y)^{1-\lambda}$.
+
+
+
