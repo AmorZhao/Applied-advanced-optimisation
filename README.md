@@ -14,4 +14,5 @@
 ## Useful websites
 
 - [iRAT submission link](https://bb.imperial.ac.uk/ultra/courses/_43935_1/cl/outline)
+- [iRAT results](https://bb.imperial.ac.uk/ultra/courses/_43935_1/cl/outline?legacyUrl=~2Fwebapps~2Fgradebook~2Fdo~2Fstudent~2FviewGrades%3Fcourse_id%3D_43935_1%26callback%3Dcourse)
 - [CVXPY](https://www.cvxpy.org/)
