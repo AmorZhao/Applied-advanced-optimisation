@@ -1,0 +1,178 @@
+% For next week:
+% - Cover from section 5.1.3 to section 6.2 (included).
+% - Complete the fifth iRAT by Thursday 13th at 13:00
+% - Next class on Friday 14th at 11:00 in 508.
+
+\subsection*{Question 1}
+\textbf{Write a quadratic programme.}
+
+A quadratic programme: 
+
+$$
+\begin{array}{ll}
+\min & \frac{1}{2}x^\top P x + q^\top x + r \\
+s.t. & G x \preccurlyeq h\\
+& Ax = b
+\end{array}
+$$
+
+where $P\in\mathbb{S}_+^n$, $G \in \mathbb{R}^{m\times n}$ and $A \in \mathbb{R}^{p\times n}$. 
+
+\subsection*{Question 2}
+\textbf{Write a geometric programme in posynomial form. Explain why this problem is not convex. Hence, write the same problem in convex form.}
+
+A geometric programme: 
+
+$$
+\begin{array}{lll}
+\min & f_0(x) &\\
+s.t. & f_i(x) \le 1, & i = 1,\dots,m\\
+& h_i(x) = 1,  & i = 1,\dots,p
+\end{array}
+$$
+
+where $f_0$, ..., $f_m$ are posynomials and $h_1$, ..., $h_p$ are monomials, thus the programme is not convex. 
+
+We can introduce $y_i = \text{log} x_i$ to rewrite the posynomials as monomials:
+
+$$
+\displaystyle f(x) = \sum_{k=1}^K c_k x_1^{a_{1k}}x_2^{a_{2k}}\cdots x_n^{a_{nk}} = \sum_{k=1}^K e^{a_k^\top y + b_k}
+$$
+
+where $a_k = (a_{1k},\dots,a_{nk})$ and $b_k = \log c_k$. 
+
+The geometric programme can be rewritten as:
+
+$$
+\begin{array}{lll}
+\min & \sum_{k=1}^{K_0} e^{a_{0k}^\top y + b_{0k}} &\\
+s.t. & \sum_{k=1}^{K_i} e^{a_{ik}^\top y + b_{ik}} \le 1, & i = 1,\dots,m\\
+& e^{g_i^\top y + h_i} = 1,  & i = 1,\dots,p
+\end{array}
+$$
+
+Take the logarithm of all the functions, we get the convex form:
+
+$$
+\begin{array}{lll}
+\min & \log\left(\sum_{k=1}^{K_0} e^{a_{0k}^\top y + b_{0k}}\right) &\\
+s.t. & \log\left(\sum_{k=1}^{K_i} e^{a_{ik}^\top y + b_{ik}}\right) \le 0, & i = 1,\dots,m\\
+& g_i^\top y + h_i = 0,  & i = 1,\dots,p
+\end{array} 
+$$
+
+\subsection*{Question 3}
+\textbf{By varying $\lambda$ in the scalarised problem, you will find different optimal points for the scalarised problem. Explain what these points are for the original convex vector optimisation problem if}
+
+\begin{itemize}
+    \item \textbf{$\lambda \succ_{K*} 0$}
+    \item \textbf{$\lambda \succcurlyeq_{K*} 0$}
+\end{itemize}
+
+If $\lambda \succ_{K*} 0$, every solution of the scalarised problem is Pareto optimal for the original optimisation problem. However, if a Pareto optimal point lies on the boundary of the feasible region and thus is not strictly dominated by any other points, we cannot find it with this method.  
+
+If $\lambda \succcurlyeq_{K*} 0$, we can find all Pareto optimal points. In this case, our solution includes the non-Pareto optimal points that lie on the boundary of the feasible region and are not strictly dominated by any other points.
+
+
+\subsection*{Question 4}
+\textbf{Define the conjugate function and use it to write the dual function of the problem
+$$
+\begin{array}{lll}
+    \text{min} & ||x|| & \\
+    \text{s.t.} & Ax = b 
+\end{array}
+$$}
+
+The conjugate function:
+
+$$
+f^*(y) = \sup_{x\in\textbf{dom }f}\left(y^\top x - f(x)  \right) = \left\{\begin{array}{ll} 0 & ||y||_*\le 1 \\ \infty & \text{otherwise.}  \end{array} \right.
+$$
+
+where $||y||_*$ is the dual norm.
+
+The dual function:
+
+$$
+g(\nu) = \inf_{x\in\mathcal{D}}  L(x,\lambda, \nu) = -b^\top \nu - f_0^*(-A^\top \nu) = \left\{\begin{array}{ll} -b^\top \nu & ||A^\top \nu||_*\le 1 \\ \infty & \text{otherwise.}  \end{array} \right.
+$$
+
+
+\subsection*{Question 5}
+\textbf{Define weak duality, and strong duality. Give conditions which guarantee strong duality for a convex optimisation problem.}
+
+Weak duality: the optimal value of the Lagrange dual problem $d^*$ is always less than or equal to the optimal value of the primal problem $p^*$ ($d^* \leq p^*$).
+
+Strong duality: the optimal value of the Lagrange dual problem $d^*$ is equal to the optimal value of the primal problem $p^*$ ($d^* = p^*$). 
+
+Strong duality holds if Slater's condition is satisfied: if there exists a feasible $x \in \textbf{int }\mathcal{D}$ such that the inequality constraints hold strictly, and the problem is convex. 
+
+
+
+%% Appendix not submitted
+
+\subsection*{Appendix}
+
+\noindent\textbf{1. \; Write the epigraph form of a convex optimisation problem in standard form.}
+
+$$
+\begin{array}{ll}
+\min & f_0(x)\\
+s.t. & f_i(x) \le 0, \; i = 1,\dots,m\\
+& Ax = b
+\end{array}
+$$
+
+\noindent\textbf{2. \; Write a linear programme.}
+
+$$
+\begin{array}{ll}
+\min & c^\top x\\
+s.t. & G x \preccurlyeq h\\
+& Ax = b
+\end{array}
+$$
+
+where $G \in \mathbb{R}^{m\times n}$ and $A \in \mathbb{R}^{p\times n}$.
+
+\noindent\textbf{3. \; Define a convex vector optimisation problem. Write its scalarised version.}
+
+$$
+\begin{array}{ll}
+\min & f_0(x)\\
+s.t. & f_i(x) \le 0, \; i = 1,\dots,m\\
+& Ax = b
+\end{array}
+$$
+
+The scalarised version:
+
+$$
+\begin{array}{ll}
+\min & \lambda^\top f(x)\\
+s.t. & Ax = b \\
+& \lambda \succeq 0
+\end{array}
+$$
+
+\noindent\textbf{4. \; Define the dual function.}
+
+$$
+g(\nu) = \inf_{x\in\mathcal{D}}  L(x,\lambda, \nu)
+$$
+
+\newpage
+
+\section*{Feedback}
+
+\subsection*{Question 1}
+Some students did not clearly define the matrix $P$, e.g. they did not say that this is a symmetric matrix or, for convex problems, that this is positive semidefinite.
+
+\subsection*{Question 2}
+Some did not justify why the GP in posynomial form is not convex. Some gave the following incorrect reason: the domain is $R_{++}$. As $R_{++}$ is a convex set, it has no impact on the convex status of the problem. The real reason is that monomials/posynomials are not convex functions (e.g. $x^3$) and that the equality constraints are not linear.
+
+\subsection*{Question 3}
+Some did not explain that the first condition does not give all Pareto optimal points, while the second condition give all plus non-Pareto optimal points. The correct answer is given in the paragraph starting with "In summary" above Example 5.14
+
+\subsection*{Question 4}
+Some gave the generic dual function instead of giving the one for the problem with the norm
