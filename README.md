@@ -5,7 +5,7 @@
 - [x] **Chapter 3:** Convex Sets (*Theory - Mathematics*)
 - [x] **Chapter 4:** Convex Functions (*Theory - Mathematics*)
 - [x] **Chapter 5:** Convex Optimisation Problems (*Theory - Mathematics*)
-- [ ] **Chapter 6:** Duality (*Theory - Mathematics*)
+- [x] **Chapter 6:** Duality (*Theory - Mathematics*)
 - [ ] **Chapter 7:** Unconstrained Minimisation (*Algorithms*)
 - [ ] **Chapter 8:** Equality Constraints Minimisation (*Algorithms*)
 - [ ] **Chapter 9:** Interior-points Methods
