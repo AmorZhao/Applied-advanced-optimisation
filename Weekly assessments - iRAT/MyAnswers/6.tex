@@ -8,40 +8,87 @@
 
 \noindent \textbf{Provide the relation between the optimal dual variables and the optimal value of the perturbed problem.} 
 
-\noindent \textbf{Using these relations explain what happens when tightening or loosening the i-th inequality constraint by a small amount.}
+$p^*(0, 0) = p^*$. If $p^*(u,v)=\infty$, then the perturbed problem is unfeasible. 
 
+By taking the derivative of $p^*(u, v)$ with respect to $u$ and $v$ at $(0, 0)$, we have:
 
+$$
+\lambda_i^* = -\frac{\partial p^*(0,0)}{\partial u_i} \qquad \nu_i^* = -\frac{\partial p^*(0,0)}{\partial v_i}.
+$$
+
+\noindent \textbf{Using these relations to explain what happens when tightening or loosening the i-th inequality constraint by a small amount.}
+
+If the $i$-th constraint is tightened slightly, the optimal value of the perturbed problem will increase by approximately $-\lambda^*_i u_i$. 
+
+If the $i$-th constraint is loosened slightly, the optimal value of the perturbed problem will decrease by approximately $\lambda^*_i u_i$. 
 
 \subsection*{Question 2}
 \textbf{Explain the factor-solve method.}
 
+The factor-solve method is a method to solve the linear system $Ax = b$ (where $A$ is symmetric and positive definite) in 2 steps. In the factorization step, we perform Cholesky decomposition to factorize $A$ as $A = LL^T$ where $L$ is a lower triangular matrix. In the solving step, we solve the system $Ax = b$ by solving the two triangular systems $Ly = b$ and $L^Tx = y$. 
+
+If $A$ is sparse, the factor step will have complexity much less than $n^3$. In this way, we are able to exploit the problem into a series of problems which are easy to solve. 
+
 \subsection*{Question 3}
 \textbf{Explain why sparsity is important when solving linear equations.}
+
+If a matrix is sparse, it can be exploited to develop efficient algorithms that take advantage of the zero entries to reduce the number of operations needed to solve the linear system.
 
 \subsection*{Question 4}
 \textbf{Provide a bound on $f (x) - p^*$ using strong convexity.}
 
+$$ \frac{1}{2M}||\nabla f(x)||^2_2 \leq  f(x) - p^*  \leq \frac{1}{2m}||\nabla f(x)||^2_2. $$
+
 \subsection*{Question 5}
 \textbf{Using classical convergence analysis provide an upper bound on the number of iterations until $f (x^{(k)}) - p^* \leq \epsilon$.}
 
+Assume $f$ is strongly convex with constant $m$ and its Hessian is Lipschitz continuous with constant $L$. There exist $\eta$ and $\gamma$ such that:
 
+\begin{itemize}
+    \item $||\nabla f(x^{(k)})||_2 \ge \eta$, damped phase: $f(x^{(k+1)}) - f(x^{(k)}) \le -\gamma$.
+    \item $||\nabla f(x^{(k)})||_2 < \eta$, quadratically convergent: $ \frac{L}{2m^2}||\nabla f(x^{(k+1)})||_2 \le \left( \frac{L}{2m^2}||\nabla f(x^{(k)})||_2 \right)^2$. 
+\end{itemize}
+
+Thus, the number of iterations until $f(x^{(k)})-p^*\le \varepsilon$ is upbounded by
+
+$$
+\frac{f(x^{(0)})-p^*}{\gamma} + \log_2 \log_2 \left(\frac{\varepsilon_0}{\varepsilon}\right)
+$$
+
+where $\gamma = \alpha\beta \eta^2 \frac{m}{M^2}$ and $\varepsilon_0 = 2\frac{m^3}{L^2}$. Note that $\log_2 \log_2 \left(\frac{\varepsilon_0}{\varepsilon}\right)$ grows very slowly and can be approximated by a small constant like 5 or 6.
 
 
 \section*{Appendix}
 \noindent\textbf{1. \; Write the Karush-Kuhn-Tucker (KKT) conditions.}
 
+$$
+\begin{aligned}
+\nabla f_0(x) + \sum_{i=1}^m \lambda_i \nabla f_i(x) + \sum_{i=1}^p \nu_i \nabla h_i(x) &= 0, \\
+f_i(x) &\leq 0, \quad i = 1, \ldots, m, \\
+h_i(x) &= 0, \quad i = 1, \ldots, p, \\
+\lambda_i &\geq 0, \quad i = 1, \ldots, m, \\
+\lambda_i f_i(x) &= 0, \quad i = 1, \ldots, m.
+\end{aligned}
+$$
 
 \noindent\textbf{2. \; Explain why it may be useful to introduce new variables in a problem in the context of duality.}
 
 
-\noindent\textbf{3. \; Define strong convexity.}
 
+\noindent\textbf{3. \; Define strong csonvexity.}
 
-
+A function $f$ is strongly convex with constant $m$ if for all $x, y$ in the domain of $f$ and for all $\alpha \in [0, 1]$, we have
 
 \noindent\textbf{4. \; Write the Netwon step and the Newton decrement.}
 
+The Newton step is given by
 
+$$
+x_{k+1} = x_k - \nabla^2 f(x_k)^{-1} \nabla f(x_k).
+$$
 
+The Newton decrement is given by
 
-
+$$
+\lambda_k = \left( \nabla f(x_k)^T \nabla^2 f(x_k)^{-1} \nabla f(x_k) \right)^{1/2}.
+$$
