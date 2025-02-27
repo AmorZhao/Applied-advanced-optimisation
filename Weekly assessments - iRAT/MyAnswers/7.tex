@@ -1,0 +1,89 @@
+% For next week:
+% - Cover from section 7.4.1 to section 8.4 (included).
+% - Complete the seventh iRAT by Thursday 27th at 13:00
+% - Next class on Friday 28th at 11:00.
+
+
+\subsection*{Question 1}
+\textbf{Explain the two drawbacks of classical convergence analysis.}
+
+The constants that determine the rate of convergence are expressed in terms of problem-dependent parameters (e.g., smoothness and strong convexity constants). These parameters are rarely known in practice.  
+
+Additionally, the classical analysis relies on bounds that are coordinate-dependent. The problem parameters change with a change of coordinates, even though the actual convergence behavior of Newton's method remains unaffected. 
+
+\subsection*{Question 2}
+\textbf{Deﬁne self-concordance for a function $ f : \mathbb{R} \to \mathbb{R}$ and explain why it is coordinate invariant.}
+
+A function \( f: \mathbb{R} \to \mathbb{R} \) is self-concordant if:  
+
+\[
+| f'''(x) | \leq 2 f''(x)^{3/2}, \quad x \in \textbf{dom }f
+\]
+
+It is coordinate invariant because it only involves second and third derivatives, which remains unchanged under affine transformations. 
+
+
+\subsection*{Question 3}
+\textbf{Consider a convex optimisation problem with equality constraints. Explain the method of reduction to unconstrained problems by elimination of the equality constraints.}
+
+Given a convex optimization problem:
+
+$$
+\begin{array}{ll}
+\min & f(x) \\
+s.t. & Ax=b
+\end{array}
+$$
+
+The feasible set can be parametrized as: 
+
+$$
+\{x:Ax=b\} = \{z\in\mathbb{R}^{n-p}:Fz + \hat x\}.
+$$
+
+Thus the problem is equivalent to: 
+
+$$
+\begin{array}{ll}
+\displaystyle \min_z & f(Fz + \hat x).
+\end{array}
+$$
+
+where the solution of the original problem is $x^* = Fz^* + \hat x$.
+
+\subsection*{Question 4}
+\textbf{Consider a convex optimisation problem with equality constraints. Explain the solution method based on the dual problem.}
+
+The dual function of the convex optimisation problem is:
+
+$$
+g(\nu) = -b^\top \nu + \inf_x (f(x) + \nu^\top Ax) = -b^\top \nu - f^*(-A^\top \nu)
+$$
+
+where $f^*$ is the conjugate of $f$. So the dual problem of $(1)$ is
+
+$$
+\begin{array}{ll}
+\max & -b^\top \nu - f^*(-A^\top \nu)
+\end{array}
+$$
+
+Since by assumption there is an optimal point, the problem is strictly feasible, so Slater's condition holds. Therefore strong duality holds, and the dual optimum is attained. 
+
+If $g$ is twice differentiable, the optimal solution $\nu^*$ can be found solving $(5)$ using the unconstrained minimisation method. The optimal primal solution $x^*$ can then be found by solving $\nabla L(x, \nu^*) = 0$. 
+
+
+\subsection*{Question 5}
+\textbf{Explain why the infeasible start Newton's method is not a descent method.}
+
+
+The infeasible satrt Newton's method is not a descent method as it does not always guarantee that the function value decreases monotonically at each step. The derivative:
+
+$$
+\left.\frac{d}{dt} f(x+t\Delta x)\right|_{t=0} = \nabla f(x)^\top \Delta x = - \Delta x^\top (\Delta^2 f(x)\Delta x + A^\top w) = - \Delta x^\top \Delta^2 f(x)\Delta x + (Ax-b)^\top w
+$$
+
+is not necessarily negative unless $x$ is feasible and so $Ax-b=0$.
+
+
+
