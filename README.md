@@ -8,8 +8,7 @@
 - [x] **Chapter 6:** Duality (*Theory - Mathematics*)
 - [x] **Chapter 7:** Unconstrained Minimisation (*Algorithms*)
 - [x] **Chapter 8:** Equality Constraints Minimisation (*Algorithms*)
-- [ ] **Chapter 9:** Interior-points Methods
-- [ ] **Chapter 10:** TBC
+- [x] **Chapter 9:** Interior-points Methods
  
 ## Useful websites
 
